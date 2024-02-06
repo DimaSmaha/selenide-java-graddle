@@ -2,7 +2,6 @@ package pageObjects;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -11,8 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 // base class that initiate driver and sets up before and after
 abstract public class basePage {
     public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        Configuration.browser = "chrome";
+        browserFactory.getBrowserDriver("edge");
 //        Configuration.driverManagerEnabled = true;
         Configuration.browserSize = "1248x968";
         Configuration.headless = false;
